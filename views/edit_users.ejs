@@ -1,0 +1,44 @@
+<%- include('layouts/header') %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 mx-auto mt-4">
+      <div class="card shadow">
+        <div class="bg-primary">
+          <h3 class="text-light text-center"> Edit Car (<%= user.name %>)</h3>
+        </div>
+        <div class="card-body p-4">
+          <form action="/update/<%= user._id %>" id="add-form" method="post" enctype="multipart/form-data" autocomplete="off">
+            <div class="mb-3">
+              <label for="name"><i class="fa fa-user"></i>Car Name</label>
+              <input type="text" name="name" class="form-control" placeholder="Enter Car name" value="<%= user.name %>" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="email"><i class="fa fa-envelope"></i> Car Type</label>
+              <input type="text" name="type" class="form-control" placeholder="Enter Car Type" value="<%= user.type %>" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="email"><i class="fa fa-envelope"></i> Add Date</label>
+              <input type="date" name="date" class="form-control" placeholder="Enter the Date" value="<%= user.date %>" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="mobile"><i class="fa fa-phone"></i> Mobile</label>
+              <input type="text" name="mobile" class="form-control" placeholder="Enter the mobile number" value="<%= user.mobile %>" required>
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-label"><i class="fa fa-file-image-o"></i> Select Image</label>
+              <input type="file" name="image" class="form-control">
+              <img src="/<%= user.image %>" width="100" class="img-thumbnail m-1">
+            </div>
+            <input type="hidden" name="old_image" value="<%= user.image%>">
+            <div class="mb-3 d-grid">
+              <input type="submit" name="submit" value="Update User" onclick="return confirm('Are you sure to update record ?');" class="btn btn-sm btn-primary">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
